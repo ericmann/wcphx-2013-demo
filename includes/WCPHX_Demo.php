@@ -17,10 +17,9 @@ class WCPHX_Demo {
 		if ( false === $post ) {
 			$args = array(
 				'numberposts' => 1,      // Select only one post
-				'order_by'    => 'rand', // Select the post at random
+				'orderby'     => 'rand', // Select the post at random
 				'post_type'   => 'post'  // Only request regular posts
 			);
-
 			$posts = get_posts( $args );
 
 			// Return the first post in the array
@@ -31,5 +30,24 @@ class WCPHX_Demo {
 		}
 
 		return $post;
+	}
+
+	/**
+	 * Trim an excerpt down to size.
+	 *
+	 * @param string $content
+	 *
+	 * @return string
+	 */
+	public function trim_excerpt( $content ) {
+		$text = strip_shortcodes( $content );
+
+		$text = apply_filters( 'the_content', $text );
+		$text = str_replace(']]>', ']]&gt;', $text);
+		$excerpt_length = apply_filters('excerpt_length', 55);
+		$excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
+		$text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+
+		return $text;
 	}
 }

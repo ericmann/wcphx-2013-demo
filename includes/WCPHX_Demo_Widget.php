@@ -67,7 +67,8 @@ class WCPHX_Demo_Widget extends WP_Widget {
 		$title = apply_filters( 'widget_title', $instance['title'] );
 
 		$demo = new WCPHX_Demo();
-		$post = $demo->get_post_of_the_day();
+		$post_of_the_day = $demo->get_post_of_the_day();
+		$post_excerpt = $demo->trim_excerpt( $post_of_the_day->post_content );
 
 		echo $args['before_widget'];
 		if ( ! empty( $title ) ) {
@@ -76,8 +77,8 @@ class WCPHX_Demo_Widget extends WP_Widget {
 			echo $args['after_title'];
 		}
 
-		echo '<h5>' . apply_filters( 'the_title', $post->post_title ) . '</h5>';
-		echo '<div class="post_of_the_day">' . apply_filters( 'get_the_excerpt', apply_filters( 'the_excerpt', $post->post_excerpt ) ) . '</div>';
+		echo '<h5>' . apply_filters( 'the_title', $post_of_the_day->post_title ) . '</h5>';
+		echo '<div class="post_of_the_day">' . apply_filters( 'the_excerpt', $post_excerpt ) . '</div>';
 
 		echo $args['after_widget'];
 	}
