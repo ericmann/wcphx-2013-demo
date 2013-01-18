@@ -7,8 +7,6 @@ class WCPHX_Demo {
 	 * Grab a post from the database at random.
 	 *
 	 * @uses get_posts()
-	 * @uses wp_cache_get()
-	 * @uses wp_cache_set()
 	 *
 	 * @return object
 	 */

@@ -77,7 +77,7 @@ class WCPHX_Demo_Widget extends WP_Widget {
 		}
 
 		echo '<h5>' . apply_filters( 'the_title', $post->post_title ) . '</h5>';
-		echo '<div class="post_of_the_day">' . apply_filter( 'get_the_excerpt', apply_filters( 'the_excerpt', $post->post_excerpt ) ) . '</div>';
+		echo '<div class="post_of_the_day">' . apply_filters( 'get_the_excerpt', apply_filters( 'the_excerpt', $post->post_excerpt ) ) . '</div>';
 
 		echo $args['after_widget'];
 	}
