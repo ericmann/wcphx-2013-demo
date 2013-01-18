@@ -32,6 +32,9 @@ define( 'WCPHX2013_VERSION', '1.0' );
 define( 'WCPHX2013_URL',     plugin_dir_url( __FILE__ ) );
 define( 'WCPHX2013_PATH',    dirname( __FILE__ ) . '/' );
 
+require_once( 'includes/WCPHX_Demo.php' );
+require_once( 'includes/WCPHX_Demo_Widget.php' );
+
 /**
  * Default initialization for the plugin:
  * - Registers the default textdomain.
@@ -57,7 +60,8 @@ function wcphx2013_deactivate() {
 register_deactivation_hook( __FILE__, 'wcphx2013_deactivate' );
 
 // Wireup actions
-add_action( 'init', 'wcphx2013_init' );
+add_action( 'init',         'wcphx2013_init' );
+add_action( 'widgets_init', create_function( '', 'register_widget( "WCPHX_Demo_Widget" );' ) );
 
 // Wireup filters
 
