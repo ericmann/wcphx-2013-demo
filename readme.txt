@@ -1,4 +1,4 @@
-=== WCPHX Demp ===
+=== WCPHX Demo ===
 Contributors:      ericmann
 Donate link:       http://jumping-duck.com/wordpress/plugins
 Tags:
