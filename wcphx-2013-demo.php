@@ -10,7 +10,7 @@
  */
 
 /**
- * Copyright 2013  Alorum
+ * Copyright 2013  Eric Mann
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or, at
